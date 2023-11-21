@@ -6,8 +6,8 @@ const router = express.Router();
 
 router.post('/addUser', async (req, res) => {
   try {
-    const { userId } = req.body;
-    const user = new User({ userId });
+    const { userId, userEmail } = req.body;
+    const user = new User({ userId, userEmail });
     await user.save();
     res.status(201).json({ message: 'User added successfully' });
   } catch (error) {

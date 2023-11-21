@@ -11,6 +11,7 @@ router.post("/activeUsers", async (req, res) => {
   } catch (error) {
     console.error("Error storing active user data:", error);
     res.status(500).json({ message: "Internal server error" });
+
   }
 });
 
@@ -27,7 +28,7 @@ router.get("/activeUsers/nearby", async (req, res) => {
           coordinates: [parseFloat(userLongitude), parseFloat(userLatitude)],
         },
         distanceField: "distance",
-        maxDistance: 10,
+        maxDistance: 100,
         includeLocs: "userLocation",
         key: "userLocation",
       },
